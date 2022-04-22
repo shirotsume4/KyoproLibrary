@@ -3,7 +3,7 @@
 
 ## コンストラクタ
 >hoge = BinomalCoefficent(MOD)\
-MOD はあらかじめ決められた <strong>素数</strong> です。\
+MOD はあらかじめ決められた <strong>素数</strong> です。
 
 
 
