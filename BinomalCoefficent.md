@@ -46,7 +46,7 @@ $-10^{18} \le n + k - 1 < MOD$
 
 計算量は、構築 $\Theta (maxi)$ 、 クエリ $\Theta (1) $ です。
 
-## verifyed with:
+## verified with:
 https://yukicoder.me/submissions/755211
 
 https://atcoder.jp/contests/agc054/submissions/31145776 (TL が厳しいので、maxiの調整と入力の高速化が必要)
