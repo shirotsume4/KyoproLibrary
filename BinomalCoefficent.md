@@ -13,8 +13,8 @@ MOD はあらかじめ決められた <strong>素数</strong> です。
 ${}n C_k  \mod MOD$ を返します。
 
 ### 制約
-$0 \le n < MOD$\
-$0 \le k < MOD$
+$-10^{18} \le n < MOD$\
+$-10^{18} \le k < MOD$
 
 ## perm
 >def perm(self, n, k) -> int:\
@@ -22,8 +22,8 @@ $0 \le k < MOD$
 ${}n P_k  \mod MOD$ を返します。
 
 ### 制約
-$0 \le n < MOD$\
-$0 \le k < MOD$
+$-10^{18} \le n < MOD$\
+$-10^{18} \le k < MOD$
 
 ## homop
 >def homop(self, n, k) -> int:\
@@ -31,9 +31,14 @@ $0 \le k < MOD$
 ${}n H_k  \mod MOD$ を返します。
 
 ### 制約
-$0 \le n < MOD$\
-$0 \le k < MOD$\
-$0 \le n + k - 1 < MOD$
+$-10^{18} \le n < MOD$\
+$-10^{18} \le k < MOD$\
+$-10^{18} \le n + k - 1 < MOD$
 
-## 計算量
+## 備考
+負の値が入力された際は、単に0が返ってきます。（負の二項係数には対応していません）\
 計算量は、構築 $\Theta (maxi)$ 、 クエリ $\Theta (1) $ です。
+
+## verifyed with:
+https://yukicoder.me/submissions/755211\
+https://atcoder.jp/contests/agc054/submissions/31145776 (TL が厳しいので、maxiの調整と入力の高速化が必要)
