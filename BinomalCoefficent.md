@@ -3,13 +3,15 @@
 
 ## コンストラクタ
 >hoge = BinomalCoefficent(MOD)\
+
 MOD はあらかじめ決められた <strong>素数</strong> です。
 
 
 
 ## choose
 >def choose(self, n, k) -> int:\
->hoge.choose(n, k)\
+>hoge.choose(n, k)
+
 ${}n C_k  \mod MOD$ を返します。
 
 ### 制約
@@ -18,7 +20,8 @@ $-10^{18} \le k < MOD$
 
 ## perm
 >def perm(self, n, k) -> int:\
->hoge.perm(n, k)\
+>hoge.perm(n, k)
+
 ${}n P_k  \mod MOD$ を返します。
 
 ### 制約
@@ -27,7 +30,8 @@ $-10^{18} \le k < MOD$
 
 ## homop
 >def homop(self, n, k) -> int:\
->hoge.homop(n, k)\
+>hoge.homop(n, k)
+
 ${}n H_k  \mod MOD$ を返します。
 
 ### 制約
