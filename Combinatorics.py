@@ -1,4 +1,4 @@
-class BinomialCoefficient():
+class Combinatorics():
     def __init__(self, mod, maxi = 3 * 10 ** 6):
         self.mod = mod
         self.maxi = maxi

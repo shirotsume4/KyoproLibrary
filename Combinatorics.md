@@ -1,9 +1,9 @@
-# BinomalCoefficent
-二項係数のライブラリです。入力の最大値を $maxi$ とすると対し前計算が $ \Theta(maxi) $ かかります。デフォルトでは $maxi = 3 \times 10^6$ となっています。
+# Combinatorics
+組み合わせのライブラリです。入力の最大値を $maxi$ とすると対し前計算が $ \Theta(maxi) $ かかります。デフォルトでは $maxi = 3 \times 10^6$ となっています。
 
 ## コンストラクタ
 
->hoge = BinomalCoefficent(MOD)
+>hoge = Combinatorics(MOD)
 
 MOD はあらかじめ決められた <strong>素数</strong> です。
 
