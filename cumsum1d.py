@@ -16,9 +16,9 @@ class Cumsum1d():
             l = 0
         if r < 0:
             return 0
-        if r > n - 1:
-            r = n - 1
-        if l > n - 1:
+        if r > self.n - 1:
+            r = self.n - 1
+        if l > self.n - 1:
             return 0
         return self.Suma[r + 1] - self.Suma[l]
 
