@@ -12,6 +12,12 @@ A は配列 $A = (A_0, A_1, \dots, A_{N - 1})$ です。Aの各要素に対し�
 
 （例えば個人で定義したクラスを載せるなどしても大丈夫です）
 
+## append
+
+> hoge.append(x) -> int
+
+数列 $A$ の末尾に $x$ を追加します。
+
 ##  query
 
 > hoge.query(l, r) -> int
@@ -23,3 +29,7 @@ $\displaystyle \sum_{i = l}^{r} A_i$ を出力します。
 > hoge.get(i) -> int
 
 $A_i$ を出力します。
+
+## verified with:
+
+https://atcoder.jp/contests/abc179/submissions/31164873
