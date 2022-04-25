@@ -9,6 +9,7 @@ class Combinatorics():
             self.facs.append((self.facs[-1] * i) % self.mod)
             self.invs.append((-self.invs[self.mod % i] * (self.mod // i)) % self.mod)
             self.factinvs.append((self.factinvs[-1] * self.invs[-1]) % self.mod)
+            
     def choose(self, n, k) -> int:
         if k < 0 or k > n: return 0
         if k == 0 or k == n: return 1
