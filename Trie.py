@@ -33,7 +33,7 @@ class Trie:
                 V = V.zero
         return V
 
-    def conteins(self, x) -> bool:
+    def contains(self, x) -> bool:
         if self.search(x) is None:
             return False
         else:
