@@ -23,6 +23,6 @@ s は始点の頂点番号、graphは隣接リストで与えられるグラフ�
 
 path には、sからtまでの経路で通った辺を (u, v) のタプルとして入れた配列が返されます。
 
-##verified with:
+## verified with:
 
 https://judge.yosupo.jp/submission/87330
