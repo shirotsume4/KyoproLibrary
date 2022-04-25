@@ -1,4 +1,4 @@
-class Cumsum2d():
+class cumsum2d():
     def __init__(self, A):
         self.X = len(A[0])
         self.Y = len(A)
@@ -10,3 +10,6 @@ class Cumsum2d():
         #0-indexed
         assert 0 <= x1 <= x2 < self.X and 0 <= y1 <= y2 < self.Y
         return self.Suma[x2 + 1][y2 + 1] - self.Suma[x2 + 1][y1] - self.Suma[x1][y2 + 1] + self.Suma[x1][y1]
+
+
+
