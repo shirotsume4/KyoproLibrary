@@ -16,8 +16,8 @@ MOD はあらかじめ決められた <strong>素数</strong> です。
 ${}n C_k  \mod MOD$ を返します。
 
 ### 制約
-$-10^{18} \le n < MOD$\
-$-10^{18} \le k < MOD$
+$-10^{18} \le n < maxi$\
+$-10^{18} \le k < maxi$
 
 ## perm
 >def perm(self, n, k) -> int:\
@@ -26,8 +26,8 @@ $-10^{18} \le k < MOD$
 ${}n P_k  \mod MOD$ を返します。
 
 ### 制約
-$-10^{18} \le n < MOD$\
-$-10^{18} \le k < MOD$
+$-10^{18} \le n < maxi$\
+$-10^{18} \le k < maxi$
 
 ## homop
 >def homop(self, n, k) -> int:\
@@ -37,9 +37,18 @@ ${}n H_k  \mod MOD$ を返します。
 
 ### 制約
 
-$-10^{18} \le n < MOD$\
-$-10^{18} \le k < MOD$\
-$-10^{18} \le n + k - 1 < MOD$
+$-10^{18} \le n < maxi$\
+$-10^{18} \le k < maxi$\
+$-10^{18} \le n + k - 1 < maxi$
+
+## factorial
+> hoge.factorial(n)
+
+$ n! \mod MOD $ を返します。 $ 0! = 1 $ です。
+
+### 制約
+
+$ 0 \le n \le maxi$
 
 ## 備考
 負の値が入力された際は、単に0が返ってきます。（負の二項係数には対応していません）

@@ -23,3 +23,6 @@ class Combinatorics():
             return 1
         return self.choose(n + k - 1, k)
 
+    def factorial(self, n):
+        return self.facs[n]
+
