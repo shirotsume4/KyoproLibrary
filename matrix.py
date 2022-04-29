@@ -10,6 +10,7 @@ class matrix():
         for i in range(r):
             A[i, i] = 1
         return A
+        
     def __getitem__(self, key):
         rnow, cnow = key
         return self.A[rnow][cnow]
