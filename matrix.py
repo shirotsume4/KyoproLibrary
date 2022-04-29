@@ -5,8 +5,8 @@ class matrix():
         self.A = [[0] * self.c for _ in range(self.r)]
         self.mod = mod
     
-    def makeone(r = 1):
-        A = matrix(r, r, mod)
+    def makeone(self, r = 1):
+        A = matrix(r, r, self.mod)
         for i in range(r):
             A[i, i] = 1
         return A
