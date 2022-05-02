@@ -1,4 +1,4 @@
-class matrix():
+class Matrix():
     def __init__(self, r, c, mod = 998244353):
         self.r = r
         self.c = c
@@ -6,7 +6,7 @@ class matrix():
         self.mod = mod
     
     def makeone(self, r = 1):
-        A = matrix(r, r, self.mod)
+        A = Matrix(r, r, self.mod)
         for i in range(r):
             A[i, i] = 1
         return A
@@ -21,7 +21,7 @@ class matrix():
     
     def __add__(self, other):
         assert self.r == other.r and self.c == other.c
-        ret = matrix(self.r, self.c)
+        ret = Matrix(self.r, self.c)
         for i in range(self.r):
             for j in range(self.c):
                 ret[i, j] = self[i, j] + other[i, j]
@@ -31,7 +31,7 @@ class matrix():
     def __sub__(self, other):
         
         assert self.r == other.r and self.c == other.c
-        ret = matrix(self.r, self.c)
+        ret = Matrix(self.r, self.c)
         for i in range(self.r):
             for j in range(self.c):
                 ret[i, j] = self[i, j] - other[i, j]
@@ -41,7 +41,7 @@ class matrix():
     def __mul__(self, other):
 
         assert self.c == other.r
-        ret = matrix(self.r, other.c)
+        ret = Matrix(self.r, other.c)
         for i in range(self.r):
             for j in range(self.c):
                 for k in range(other.c):
@@ -53,7 +53,7 @@ class matrix():
 
         assert self.r == other.r
 
-        X = matrix(self.r, self.c + other.c, mod = self.mod)
+        X = Matrix(self.r, self.c + other.c, mod = self.mod)
 
         for i in range(self.r):
             for j in range(self.c):
@@ -70,7 +70,7 @@ class matrix():
         for i in range(self.r):
             X.append((self.A[i][:c]))
         
-        return matrix(self.r, c, mod = self.mod, A = X)
+        return Matrix(self.r, c, mod = self.mod, A = X)
         
     def hakidashi(self):
         for i in range(self.c):
@@ -105,7 +105,7 @@ class matrix():
     def inv(self):
         assert self.c == self.r
 
-        one = matrix.makeone(r = self.r)
+        one = Matrix.makeone(r = self.r)
         new = self.augment(one)
         new.hakidashi()
         for i in range(self.r):
@@ -117,7 +117,7 @@ class matrix():
                     if new[i, j] != 0:
                         return 0, new
         
-        X = matrix(self.r, self.c)
+        X = Matrix(self.r, self.c)
 
         for i in range(self.r):
             for j in range(self.c):

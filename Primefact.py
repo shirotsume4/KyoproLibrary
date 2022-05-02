@@ -1,5 +1,5 @@
 from math import gcd
-def is_prime(n):
+def isprime(n):
     if n <= 2:
         return n == 2
     if n % 2 == 0:
@@ -16,7 +16,7 @@ def is_prime(n):
         x = pow(a, t, n)
         if x == 1 or x == n - 1:
             continue
-        for i in range(s):
+        for _ in range(s):
             x = (x * x) % n
             if x == n - 1:
                 break
@@ -26,10 +26,10 @@ def is_prime(n):
         return False
     return True
 
-def pollad(N):
+def Pollad(N):
     if N % 2 == 0:
         return 2
-    if is_prime(N):
+    if isprime(N):
         return N
     def f(x):
         return (x * x + 1) % N
@@ -49,7 +49,7 @@ def pollad(N):
             y = f(f(y))
 
 
-def prime_fact(N):
+def Primefact(N):
     if N == 1:
         return []
     q = []
@@ -59,7 +59,7 @@ def prime_fact(N):
         now = q.pop()
         if now == 1:
             continue
-        p = pollad(now)
+        p = Pollad(now)
         if p == now:
             ret.append(p)
         else:

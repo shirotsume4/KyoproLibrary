@@ -1,5 +1,5 @@
 INF = 2 ** 63 - 1
-def dijkstra(s, graph):
+def Dijkstra(s, graph):
     import heapq
     n = len(graph)
     dist = [INF] * n
@@ -21,7 +21,7 @@ def dijkstra(s, graph):
                 heapq.heappush(hq, (dist[to], to))
     return dist, bef
 
-def rest(bef, t):
+def DijkstraRest(bef, t):
     now = t
     ret = []
     while bef[now] != now:

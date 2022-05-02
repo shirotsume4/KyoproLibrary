@@ -1,4 +1,4 @@
-class cumsum1d():
+class Cumsum1d():
     n = None
     Suma = []
     def __init__(self, A):

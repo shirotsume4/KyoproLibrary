@@ -1,4 +1,4 @@
-def manacher(s):
+def Manacher(s):
     t = []
     for v in s:
         t.append(v)

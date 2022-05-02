@@ -1,4 +1,4 @@
-class cumsum2d():
+class Cumsum2d():
     def __init__(self, A):
         self.X = len(A[0])
         self.Y = len(A)

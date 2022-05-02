@@ -1,4 +1,4 @@
-class xorconvolution():
+class Xorconvolution():
     def __init__(self, mod = 998244353):
         self.mod = mod
 
