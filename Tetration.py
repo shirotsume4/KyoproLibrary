@@ -97,6 +97,3 @@ def Tetration(a, b, mod):
     if t == 0:
         t += phi
     return pow(a, t, mod)
-
-
-    
