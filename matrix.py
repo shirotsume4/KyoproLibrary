@@ -29,7 +29,6 @@ class Matrix():
         return ret
 
     def __sub__(self, other):
-        
         assert self.r == other.r and self.c == other.c
         ret = Matrix(self.r, self.c)
         for i in range(self.r):
@@ -39,6 +38,13 @@ class Matrix():
         return ret
 
     def __mul__(self, other):
+        if isinstance(other, int):
+            ret = Matrix(self.r, self.c)
+            for i in range(self.r):
+                for j in range(self.c):
+                    ret[i, j] = self[i, j] * other
+                    ret[i, j] %= self.mod
+                    
 
         assert self.c == other.r
         ret = Matrix(self.r, other.c)
