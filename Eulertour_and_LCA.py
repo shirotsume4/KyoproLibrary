@@ -51,7 +51,7 @@ def EulerTour(s, graph):
     
     return ret
 
-def calcdepth(s, graph):
+def CalcDepth(s, graph):
     INF = 2 ** 63 - 1
     from collections import deque
     n = len(graph)
@@ -74,7 +74,7 @@ class LCA():
         self.graph = graph
         self.N = len(self.graph)
         self.ET = EulerTour(0, self.graph)
-        self.depth = calcdepth(0, graph)
+        self.depth = CalcDepth(0, graph)
         self.disc = [-1] * (self.N)
         self.fin = [-1] * (self.N)
         for i, v in enumerate(self.ET):
