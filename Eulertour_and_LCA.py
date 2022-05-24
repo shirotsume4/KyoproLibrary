@@ -81,7 +81,6 @@ class LCA():
             if self.disc[v] == -1:
                 self.disc[v] = i
             self.fin[v] = i
-        
         self.S = segtree([(self.ET[i], self.depth[self.ET[i]]) for i in range(len(self.ET))], lambda x, y: x if x[1] <= y[1] else y, (-1, self.INF))
     
     def lca(self, u, v):
