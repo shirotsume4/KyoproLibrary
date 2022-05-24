@@ -98,8 +98,5 @@ def Tetration(a, b, mod):
         t += phi
     return pow(a, t, mod)
 
-for _ in range(int(input())):
-    a, b, m = map(int,input().split())
-    print(Tetration(a, b, m))
 
     

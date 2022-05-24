@@ -27,3 +27,6 @@ class Combinatorics():
     def factorial(self, n):
         return self.facs[n]
 
+
+
+

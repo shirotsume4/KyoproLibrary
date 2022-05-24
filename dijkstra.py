@@ -1,5 +1,5 @@
-INF = 2 ** 63 - 1
 def Dijkstra(s, graph):
+    INF = 2 ** 63 - 1
     import heapq
     n = len(graph)
     dist = [INF] * n
