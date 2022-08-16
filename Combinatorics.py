@@ -1,5 +1,5 @@
 class Combinatorics():
-    def __init__(self, mod, maxi = 3 * 10 ** 6):
+    def __init__(self, mod = 998244353, maxi = 5 * 10 ** 5):
         self.mod = mod
         self.maxi = maxi
         self.facs = [1, 1]

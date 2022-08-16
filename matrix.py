@@ -55,6 +55,23 @@ class Matrix():
                     ret[i, k] %= self.mod
         return ret
 
+    def pow(self, x):
+        assert isinstance(x, int) and x >= 0
+        assert self.r == self.c
+        if x == 0:
+            return self.makeone(self.c)
+        else:
+            ret = self.makeone(self.c)
+            now = self
+            while x > 0:
+                if x % 2:
+                    ret *= now
+                now *= now
+                x //= 2
+            return ret
+            
+                    
+
     def augment(self, other):
 
         assert self.r == other.r
