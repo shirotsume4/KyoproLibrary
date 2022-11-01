@@ -10,11 +10,29 @@ data:
       path: CountPrime.py
       title: CountPrime.py
     - icon: ':warning:'
+      path: Cumsum1d.py
+      title: Cumsum1d.py
+    - icon: ':warning:'
+      path: Cumsum2d.py
+      title: Cumsum2d.py
+    - icon: ':warning:'
+      path: DSWAG.py
+      title: DSWAG.py
+    - icon: ':warning:'
+      path: Dijkstra.py
+      title: Dijkstra.py
+    - icon: ':warning:'
       path: Eulertour_and_LCA.py
       title: Eulertour_and_LCA.py
     - icon: ':warning:'
       path: Heap.py
       title: Heap.py
+    - icon: ':warning:'
+      path: Manacher.py
+      title: Manacher.py
+    - icon: ':warning:'
+      path: Matrix.py
+      title: Matrix.py
     - icon: ':warning:'
       path: Mo.py
       title: Mo.py
@@ -22,32 +40,32 @@ data:
       path: Primefact.py
       title: Primefact.py
     - icon: ':warning:'
+      path: Rollinghash.py
+      title: Rollinghash.py
+    - icon: ':warning:'
+      path: SWAG.py
+      title: SWAG.py
+    - icon: ':warning:'
       path: Tetration.py
       title: Tetration.py
     - icon: ':warning:'
       path: Trie.py
       title: Trie.py
     - icon: ':warning:'
+      path: Xorconvolution.py
+      title: Xorconvolution.py
+    - icon: ':warning:'
       path: andconvolution.py
       title: andconvolution.py
     - icon: ':warning:'
-      path: cumsum1d.py
-      title: cumsum1d.py
+      path: modint.py
+      title: modint.py
     - icon: ':warning:'
-      path: cumsum2d.py
-      title: cumsum2d.py
+      path: proot.py
+      title: proot.py
     - icon: ':warning:'
-      path: dijkstra.py
-      title: dijkstra.py
-    - icon: ':warning:'
-      path: manacher.py
-      title: manacher.py
-    - icon: ':warning:'
-      path: matrix.py
-      title: matrix.py
-    - icon: ':warning:'
-      path: xorconvolution.py
-      title: xorconvolution.py
+      path: safedict.py
+      title: safedict.py
     - icon: ':warning:'
       path: "\u5C3A\u53D6\u308A\u6CD5.py"
       title: "\u5C3A\u53D6\u308A\u6CD5.py"
@@ -55,10 +73,10 @@ data:
       path: "\u5EA7\u5727.py"
       title: "\u5EA7\u5727.py"
   verificationCategories:
-  - name: .
+  - name: test
     pages:
-    - icon: ':heavy_check_mark:'
-      path: example.test.cpp
-      title: example.test.cpp
+    - icon: ':x:'
+      path: test/safedict.test.py
+      title: test/safedict.test.py
 layout: toppage
 ---

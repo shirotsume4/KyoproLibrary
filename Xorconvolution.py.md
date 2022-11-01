@@ -30,15 +30,15 @@ data:
     \ %= self.mod\n        return c\n\n\n"
   dependsOn: []
   isVerificationFile: false
-  path: xorconvolution.py
+  path: Xorconvolution.py
   requiredBy: []
-  timestamp: '2022-05-03 00:13:15+09:00'
+  timestamp: '2022-11-02 01:48:20+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
-documentation_of: xorconvolution.py
+documentation_of: Xorconvolution.py
 layout: document
 redirect_from:
-- /library/xorconvolution.py
-- /library/xorconvolution.py.html
-title: xorconvolution.py
+- /library/Xorconvolution.py
+- /library/Xorconvolution.py.html
+title: Xorconvolution.py
 ---

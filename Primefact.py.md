@@ -34,7 +34,7 @@ data:
   isVerificationFile: false
   path: Primefact.py
   requiredBy: []
-  timestamp: '2022-05-03 00:13:15+09:00'
+  timestamp: '2022-11-02 01:48:20+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: Primefact.py

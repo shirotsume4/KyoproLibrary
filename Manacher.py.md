@@ -12,24 +12,26 @@ data:
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
     \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.8/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/python.py\"\
     , line 96, in bundle\n    raise NotImplementedError\nNotImplementedError\n"
-  code: "class Cumsum2d():\n    def __init__(self, A):\n        self.X = len(A[0])\n\
-    \        self.Y = len(A)\n        self.Suma = [[0] * (self.X + 1) for _ in range(self.Y\
-    \ + 1)]\n        for i in range(self.X):\n            for j in range(self.Y):\n\
-    \                self.Suma[i + 1][j + 1] = self.Suma[i + 1][j] + self.Suma[i][j\
-    \ + 1] - self.Suma[i][j] + A[i][j]\n    def query(self, x1, y1, x2, y2):\n   \
-    \     #0-indexed\n        return self.Suma[x2][y2] - self.Suma[x2][y1] - self.Suma[x1][y2]\
-    \ + self.Suma[x1][y1]\n\n\n\n"
+  code: "def Manacher(s):\n    t = []\n    for v in s:\n        t.append(v)\n    \
+    \    t.append('$')\n    t.pop()\n    ret = [0] * len(t)\n    i = 0\n    j = 0\n\
+    \n    while i < len(t):\n        while i - j >= 0 and i + j < len(t) and t[i -\
+    \ j] == t[i + j]:\n            j += 1\n        ret[i] = j\n        k = 1\n   \
+    \     while i  - k >= 0 and i + k < len(t) and k + ret[i - k] < j:\n         \
+    \   ret[i + k] = ret[i - k]\n            k += 1\n        i += k\n        j -=\
+    \ k\n    for i in range(len(t)):\n        if t[i] == '$' and ret[i] % 2:\n   \
+    \         ret[i] -= 1\n        if t[i] != '$' and ret[i] % 2 == 0:\n         \
+    \   ret[i] -= 1\n    return ret\n\n        \n\n\n"
   dependsOn: []
   isVerificationFile: false
-  path: cumsum2d.py
+  path: Manacher.py
   requiredBy: []
-  timestamp: '2022-08-17 00:47:46+09:00'
+  timestamp: '2022-11-02 01:48:20+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
-documentation_of: cumsum2d.py
+documentation_of: Manacher.py
 layout: document
 redirect_from:
-- /library/cumsum2d.py
-- /library/cumsum2d.py.html
-title: cumsum2d.py
+- /library/Manacher.py
+- /library/Manacher.py.html
+title: Manacher.py
 ---

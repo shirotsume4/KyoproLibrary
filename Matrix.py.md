@@ -97,15 +97,15 @@ data:
     \      "
   dependsOn: []
   isVerificationFile: false
-  path: matrix.py
+  path: Matrix.py
   requiredBy: []
-  timestamp: '2022-08-17 00:47:46+09:00'
+  timestamp: '2022-11-02 01:48:20+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
-documentation_of: matrix.py
+documentation_of: Matrix.py
 layout: document
 redirect_from:
-- /library/matrix.py
-- /library/matrix.py.html
-title: matrix.py
+- /library/Matrix.py
+- /library/Matrix.py.html
+title: Matrix.py
 ---
