@@ -1,4 +1,4 @@
-# verification-helper: PROBLEM https://judge.yosupo.jp/problem/unionfind
+# verification-helper: PROBLEM https://judge.yosupo.jp/problem/associative_array
 import sys
 input = lambda: sys.stdin.readline().rstrip()
 ii = lambda: int(input())
