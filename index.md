@@ -65,7 +65,7 @@ data:
       title: proot.py
     - icon: ':warning:'
       path: safedict.py
-      title: safedict.py
+      title: safedict
     - icon: ':warning:'
       path: "\u5C3A\u53D6\u308A\u6CD5.py"
       title: "\u5C3A\u53D6\u308A\u6CD5.py"
