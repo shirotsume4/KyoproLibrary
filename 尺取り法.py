@@ -16,3 +16,24 @@ for left in range(n):
         right += 1
     else:
         ここにleftが区間から出たときの処理を書く
+import string
+import sys
+input = lambda: sys.stdin.readline().rstrip()
+ii = lambda: int(input())
+mi = lambda: map(int, input().split())
+li = lambda: list(mi())
+inf = 2 ** 63 - 1
+mod = 998244353
+
+
+def sq(x):
+    ok = 0
+    ng = x + 1
+    while abs(ok - ng) > 1:
+        mid = (ok + ng)//2
+        if mid * mid <= x:
+            ok = mid
+        else:
+            ng = mid
+    return ok
+

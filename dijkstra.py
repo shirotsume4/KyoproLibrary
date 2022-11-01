@@ -7,15 +7,13 @@ def Dijkstra(s, graph):
     bef = [0] * n
     bef[s] = s
     hq = [(0, s)]
-    visit = [False] * n
     heapq.heapify(hq)
     while hq:
         c, now = heapq.heappop(hq)
-        visit[now] = True
         if c > dist[now]:
             continue
         for to, cost in graph[now]:
-            if (not visit[to]) and dist[now] + cost < dist[to]:
+            if dist[now] + cost < dist[to]:
                 dist[to] = cost + dist[now]
                 bef[to] = now
                 heapq.heappush(hq, (dist[to], to))

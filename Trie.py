@@ -1,26 +1,25 @@
-class Trie_Vertex:
-    def __init__(self):
-        self.parent = None
-        self.one = None
-        self.zero = None
 
 class Trie:
     def __init__(self, wordsize = 64):
         self.wordsize = wordsize
-        self.root = Trie_Vertex()
+        self.root = 0
+        self.leftch = {}
+        self.rightch = {}
+        self.parent = {}
 
     def add(self, x):
         V = self.root
         for i in range(self.wordsize - 1, -1, -1):
+            fr = 2 ** i
             if 1 & (x >> i):
-                if V.one is None:
-                    V.one = Trie_Vertex()
-                    V.one.parent = V
-                V = V.one
+                if V not in self.rightch:
+                    self.rightch[V] = V + fr
+                    self.parent[V + fr] = V
+                V = V + fr
             else:
-                if V.zero is None:
-                    V.zero = Trie_Vertex()
-                    V.zero.parent = V
+                if V not in self.leftch:
+                    self.leftch[V] = V
+                    self.parent[V] = V
                 V = V.zero
     def search(self, x):
         V = self.root
