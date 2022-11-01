@@ -75,7 +75,7 @@ data:
   verificationCategories:
   - name: test
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/safedict.test.py
       title: test/safedict.test.py
 layout: toppage
