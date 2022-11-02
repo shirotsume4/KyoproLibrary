@@ -6,7 +6,7 @@ data:
     - icon: ':warning:'
       path: Combinatorics.py
       title: Combinatorics.py
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: CountPrime.py
       title: CountPrime.py
     - icon: ':warning:'
@@ -78,7 +78,10 @@ data:
   verificationCategories:
   - name: test
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
+      path: test/CountPrime.test.py
+      title: test/CountPrime.test.py
+    - icon: ':heavy_check_mark:'
       path: test/safedict.test.py
       title: test/safedict.test.py
 layout: toppage
