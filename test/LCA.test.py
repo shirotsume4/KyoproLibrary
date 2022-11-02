@@ -11,7 +11,6 @@ from Eulertour_and_LCA import LCA
 
 n, q = mi()
 p = li()
-
 graph = [[] for _ in range(n)]
 
 for i in range(n - 1):
