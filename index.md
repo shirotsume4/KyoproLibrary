@@ -9,13 +9,13 @@ data:
     - icon: ':heavy_check_mark:'
       path: CountPrime.py
       title: CountPrime.py
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: Cumsum1d.py
       title: Cumsum1d.py
     - icon: ':warning:'
       path: Cumsum2d.py
       title: Cumsum2d.py
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: DSWAG.py
       title: DSWAG.py
     - icon: ':warning:'
@@ -42,7 +42,7 @@ data:
     - icon: ':warning:'
       path: Rollinghash.py
       title: Rollinghash.py
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: SWAG.py
       title: SWAG.py
     - icon: ':warning:'
@@ -81,6 +81,21 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/CountPrime.test.py
       title: test/CountPrime.test.py
+    - icon: ':heavy_check_mark:'
+      path: test/Cumsum1d.test.py
+      title: test/Cumsum1d.test.py
+    - icon: ':heavy_check_mark:'
+      path: test/DSWAG.test.py
+      title: test/DSWAG.test.py
+    - icon: ':heavy_check_mark:'
+      path: test/Dijkstra.test.py
+      title: test/Dijkstra.test.py
+    - icon: ':heavy_check_mark:'
+      path: test/LCA.test.py
+      title: test/LCA.test.py
+    - icon: ':heavy_check_mark:'
+      path: test/SWAG.test.py
+      title: test/SWAG.test.py
     - icon: ':heavy_check_mark:'
       path: test/safedict.test.py
       title: test/safedict.test.py
