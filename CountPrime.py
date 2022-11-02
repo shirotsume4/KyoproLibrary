@@ -31,5 +31,3 @@ def countprime(n):
             LS[to] -= LS[to // p] - count 
         count += 1
     return L[1]
-
-print(countprime(int(input())))
