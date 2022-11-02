@@ -30,7 +30,7 @@ data:
     - icon: ':warning:'
       path: Manacher.py
       title: Manacher.py
-    - icon: ':warning:'
+    - icon: ':x:'
       path: Matrix.py
       title: Matrix.py
     - icon: ':warning:'
@@ -93,11 +93,23 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/LCA.test.py
       title: test/LCA.test.py
+    - icon: ':x:'
+      path: test/Matrixdet.test.py
+      title: test/Matrixdet.test.py
+    - icon: ':x:'
+      path: test/Matrixinv.test.py
+      title: test/Matrixinv.test.py
+    - icon: ':x:'
+      path: test/Matrixproduct.test.py
+      title: test/Matrixproduct.test.py
     - icon: ':heavy_check_mark:'
       path: test/SWAG.test.py
       title: test/SWAG.test.py
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/safedict.test.py
       title: test/safedict.test.py
+    - icon: ':x:'
+      path: test/systemoflinereq.test.py
+      title: test/systemoflinereq.test.py
 layout: toppage
 ---

@@ -18,9 +18,9 @@ data:
     \ sys\nsys.path.append(\"..\")\ninput = lambda: sys.stdin.readline().rstrip()\n\
     ii = lambda: int(input())\nmi = lambda: map(int, input().split())\nli = lambda:\
     \ list(mi())\ninf = 2 ** 63 - 1\nmod = 998244353\nfrom Eulertour_and_LCA import\
-    \ LCA\n\nn, q = mi()\n\np = li()\n\ngraph = [[] for _ in range(n)]\n\nfor i in\
-    \ range(n - 1):\n    graph[i + 1].append(p[i])\n    graph[p[i]].append(i + 1)\n\
-    \nL = LCA(graph)\n\nfor _ in range(q):\n    u, v = mi()\n    print(L.lca(u, v))"
+    \ LCA\n\nn, q = mi()\np = li()\n\ngraph = [[] for _ in range(n)]\n\nfor i in range(n\
+    \ - 1):\n    graph[i + 1].append(p[i])\n    graph[p[i]].append(i + 1)\n\nL = LCA(graph)\n\
+    \nfor _ in range(q):\n    u, v = mi()\n    print(L.lca(u, v))"
   dependsOn: []
   isVerificationFile: true
   path: test/LCA.test.py

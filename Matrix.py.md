@@ -2,10 +2,22 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _extendedVerifiedWith:
+  - icon: ':x:'
+    path: test/Matrixdet.test.py
+    title: test/Matrixdet.test.py
+  - icon: ':x:'
+    path: test/Matrixinv.test.py
+    title: test/Matrixinv.test.py
+  - icon: ':x:'
+    path: test/Matrixproduct.test.py
+    title: test/Matrixproduct.test.py
+  - icon: ':x:'
+    path: test/systemoflinereq.test.py
+    title: test/systemoflinereq.test.py
+  _isVerificationFailed: true
   _pathExtension: py
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.8/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
@@ -100,8 +112,12 @@ data:
   path: Matrix.py
   requiredBy: []
   timestamp: '2022-11-02 01:48:20+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  verificationStatus: LIBRARY_ALL_WA
+  verifiedWith:
+  - test/Matrixdet.test.py
+  - test/systemoflinereq.test.py
+  - test/Matrixinv.test.py
+  - test/Matrixproduct.test.py
 documentation_of: Matrix.py
 layout: document
 redirect_from:
