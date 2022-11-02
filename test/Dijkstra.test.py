@@ -10,6 +10,7 @@ mod = 998244353
 
 from Dijkstra import Dijkstra, DijkstraRest
 
+
 n, m, s, t = mi()
 graph = [[] for _ in range(n)]
 for _ in range(m):

@@ -10,7 +10,6 @@ mod = 998244353
 from Eulertour_and_LCA import LCA
 
 n, q = mi()
-
 p = li()
 
 graph = [[] for _ in range(n)]

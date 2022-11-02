@@ -8,8 +8,10 @@ li = lambda: list(mi())
 inf = 2 ** 63 - 1
 mod = 998244353
 from safedict import sdict
+
 q = ii()
 d = sdict()
+
 for _ in range(q):
     query = li()
     if query[0] == 0:
