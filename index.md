@@ -99,13 +99,10 @@ data:
     - icon: ':x:'
       path: test/Matrixinv.test.py
       title: test/Matrixinv.test.py
-    - icon: ':x:'
-      path: test/Matrixproduct.test.py
-      title: test/Matrixproduct.test.py
     - icon: ':heavy_check_mark:'
       path: test/SWAG.test.py
       title: test/SWAG.test.py
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/safedict.test.py
       title: test/safedict.test.py
     - icon: ':x:'

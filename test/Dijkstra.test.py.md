@@ -20,7 +20,7 @@ data:
     import sys\nsys.path.append(\"..\")\ninput = lambda: sys.stdin.readline().rstrip()\n\
     ii = lambda: int(input())\nmi = lambda: map(int, input().split())\nli = lambda:\
     \ list(mi())\ninf = 2 ** 63 - 1\nmod = 998244353\n\nfrom Dijkstra import Dijkstra,\
-    \ DijkstraRest\n\n\nn, m, s, t = mi()\ngraph = [[] for _ in range(n)]\nfor _ in\
+    \ DijkstraRest\n\nn, m, s, t = mi()\ngraph = [[] for _ in range(n)]\nfor _ in\
     \ range(m):\n    u, v, w = mi()\n    graph[u].append((v, w))\n\nd, r = Dijkstra(s,\
     \ graph)\nif d[t] >= inf:\n    print(-1)\n    exit()\nret = DijkstraRest(r, t)\n\
     print(d[t], len(ret))\nfor u, v in ret:\n    print(u, v)"

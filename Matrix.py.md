@@ -10,9 +10,6 @@ data:
     path: test/Matrixinv.test.py
     title: test/Matrixinv.test.py
   - icon: ':x:'
-    path: test/Matrixproduct.test.py
-    title: test/Matrixproduct.test.py
-  - icon: ':x:'
     path: test/systemoflinereq.test.py
     title: test/systemoflinereq.test.py
   _isVerificationFailed: true
@@ -119,7 +116,6 @@ data:
   - test/Matrixdet.test.py
   - test/systemoflinereq.test.py
   - test/Matrixinv.test.py
-  - test/Matrixproduct.test.py
 documentation_of: Matrix.py
 layout: document
 redirect_from:

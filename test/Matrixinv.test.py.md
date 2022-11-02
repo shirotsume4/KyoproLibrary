@@ -23,7 +23,7 @@ data:
     import sys\nsys.path.append(\"..\")\ninput = lambda: sys.stdin.readline().rstrip()\n\
     ii = lambda: int(input())\nmi = lambda: map(int, input().split())\nli = lambda:\
     \ list(mi())\ninf = 2 ** 63 - 1\nmod = 998244353\nfrom Matrix import Matrix\n\
-    n = ii()\na = Matrix(n, n, mod)\n\nfor i in range(n):\n    al = li()\n    for\
+    n = ii()\na = Matrix(n, n, mod)\n\n\nfor i in range(n):\n    al = li()\n    for\
     \ j in range(n):\n        a[i, j] = al[j]\n\nf, a = a.inv()\n\nif not f:\n   \
     \ print(-1)\nelse:\n    a.print()"
   dependsOn:
@@ -31,7 +31,7 @@ data:
   isVerificationFile: true
   path: test/Matrixinv.test.py
   requiredBy: []
-  timestamp: '2022-11-02 23:38:59+09:00'
+  timestamp: '2022-11-03 00:49:18+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/Matrixinv.test.py
