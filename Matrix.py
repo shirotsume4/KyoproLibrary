@@ -128,7 +128,7 @@ class Matrix():
     def inv(self):
         assert self.c == self.r
 
-        one = Matrix.makeone(self.r)
+        one = self.makeone(self.r)
         new = self.augment(one)
         new.hakidashi()
         for i in range(self.r):
