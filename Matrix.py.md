@@ -71,8 +71,8 @@ data:
     \ = self[i2, j]\n                for j2 in range(self.c):\n                  \
     \  self[i2, j2] -= time * self[i, j2]\n                    self[i2, j2] %= self.mod\n\
     \n        return self\n\n    def inv(self):\n        assert self.c == self.r\n\
-    \n        one = Matrix.makeone(self.r)\n        new = self.augment(one)\n    \
-    \    new.hakidashi()\n        for i in range(self.r):\n            for j in range(self.c):\n\
+    \n        one = self.makeone(self.r)\n        new = self.augment(one)\n      \
+    \  new.hakidashi()\n        for i in range(self.r):\n            for j in range(self.c):\n\
     \                if i == j:\n                    if new[i, j] != 1:\n        \
     \                return 0, new\n                else:\n                    if\
     \ new[i, j] != 0:\n                        return 0, new\n        \n        X\
@@ -110,7 +110,7 @@ data:
   isVerificationFile: false
   path: Matrix.py
   requiredBy: []
-  timestamp: '2022-11-02 23:38:59+09:00'
+  timestamp: '2022-11-03 01:23:41+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/Matrixdet.test.py

@@ -88,11 +88,8 @@ data:
       path: test/DSWAG.test.py
       title: test/DSWAG.test.py
     - icon: ':heavy_check_mark:'
-      path: test/Dijkstra.test.py
-      title: test/Dijkstra.test.py
-    - icon: ':heavy_check_mark:'
-      path: test/LCA.test.py
-      title: test/LCA.test.py
+      path: test/EulertourLCA.test.py
+      title: test/EulertourLCA.test.py
     - icon: ':heavy_check_mark:'
       path: test/Matrixdet.test.py
       title: test/Matrixdet.test.py
@@ -102,9 +99,12 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/SWAG.test.py
       title: test/SWAG.test.py
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/safedict.test.py
       title: test/safedict.test.py
+    - icon: ':x:'
+      path: test/shopath.test.py
+      title: test/shopath.test.py
     - icon: ':x:'
       path: test/systemoflinereq.test.py
       title: test/systemoflinereq.test.py

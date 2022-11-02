@@ -3,37 +3,38 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: py
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
-    PROBLEM: https://judge.yosupo.jp/problem/lca
+    PROBLEM: https://judge.yosupo.jp/problem/shortest_path
     links:
-    - https://judge.yosupo.jp/problem/lca
+    - https://judge.yosupo.jp/problem/shortest_path
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.11.0/x64/lib/python3.11/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
     \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n          \
     \         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\
     \  File \"/opt/hostedtoolcache/Python/3.11.0/x64/lib/python3.11/site-packages/onlinejudge_verify/languages/python.py\"\
     , line 96, in bundle\n    raise NotImplementedError\nNotImplementedError\n"
-  code: "# verification-helper: PROBLEM https://judge.yosupo.jp/problem/lca\nimport\
-    \ sys\nsys.path.append(\"..\")\ninput = lambda: sys.stdin.readline().rstrip()\n\
+  code: "# verification-helper: PROBLEM https://judge.yosupo.jp/problem/shortest_path\n\
+    import sys\nsys.path.append(\"..\")\ninput = lambda: sys.stdin.readline().rstrip()\n\
     ii = lambda: int(input())\nmi = lambda: map(int, input().split())\nli = lambda:\
-    \ list(mi())\ninf = 2 ** 63 - 1\nmod = 998244353\nfrom Eulertour_and_LCA import\
-    \ LCA\n\nn, q = mi()\np = li()\ngraph = [[] for _ in range(n)]\n\nfor i in range(n\
-    \ - 1):\n    graph[i + 1].append(p[i])\n    graph[p[i]].append(i + 1)\n\nL = LCA(graph)\n\
-    \nfor _ in range(q):\n    u, v = mi()\n    print(L.lca(u, v))"
+    \ list(mi())\ninf = 2 ** 63 - 1\nmod = 998244353\n\nfrom Dijkstra import Dijkstra,\
+    \ DijkstraRest\n\nn, m, s, t = mi()\ngraph = [[] for _ in range(n)]\nfor _ in\
+    \ range(m):\n    u, v, w = mi()\n    graph[u].append((v, w))\n\nd, r = Dijkstra(s,\
+    \ graph)\nif d[t] >= inf:\n    print(-1)\n    exit()\nret = DijkstraRest(r, t)\n\
+    print(d[t], len(ret))\nfor u, v in ret:\n    print(u, v)"
   dependsOn: []
   isVerificationFile: true
-  path: test/LCA.test.py
+  path: test/shopath.test.py
   requiredBy: []
   timestamp: '1970-01-01 00:00:00+00:00'
-  verificationStatus: TEST_ACCEPTED
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
-documentation_of: test/LCA.test.py
+documentation_of: test/shopath.test.py
 layout: document
 redirect_from:
-- /verify/test/LCA.test.py
-- /verify/test/LCA.test.py.html
-title: test/LCA.test.py
+- /verify/test/shopath.test.py
+- /verify/test/shopath.test.py.html
+title: test/shopath.test.py
 ---
