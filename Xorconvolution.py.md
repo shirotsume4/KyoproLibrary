@@ -14,7 +14,7 @@ data:
     \         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\
     \  File \"/opt/hostedtoolcache/Python/3.11.0/x64/lib/python3.11/site-packages/onlinejudge_verify/languages/python.py\"\
     , line 96, in bundle\n    raise NotImplementedError\nNotImplementedError\n"
-  code: "class Xorconvolution():\n    def __init__(self, mod = 998244353):\n     \
+  code: "class xorconvolution():\n    def __init__(self, mod = 998244353):\n     \
     \   self.mod = mod\n\n    def FHT(self, a):\n        n = len(a)\n        i = 1\n\
     \        while i < n:\n            for j in range(n):\n                if (j &\
     \ i) == 0:\n                    x = a[j]\n                    y = a[j | i]\n \
@@ -34,7 +34,7 @@ data:
   isVerificationFile: false
   path: Xorconvolution.py
   requiredBy: []
-  timestamp: '2022-11-02 01:48:20+09:00'
+  timestamp: '2022-11-03 01:49:51+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: Xorconvolution.py

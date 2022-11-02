@@ -45,7 +45,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: SWAG.py
       title: SWAG.py
-    - icon: ':warning:'
+    - icon: ':x:'
       path: Tetration.py
       title: Tetration.py
     - icon: ':warning:'
@@ -54,7 +54,7 @@ data:
     - icon: ':warning:'
       path: Xorconvolution.py
       title: Xorconvolution.py
-    - icon: ':warning:'
+    - icon: ':x:'
       path: andconvolution.py
       title: andconvolution.py
     - icon: ':warning:'
@@ -100,6 +100,9 @@ data:
       path: test/SWAG.test.py
       title: test/SWAG.test.py
     - icon: ':x:'
+      path: test/andconv.test.py
+      title: test/andconv.test.py
+    - icon: ':x:'
       path: test/safedict.test.py
       title: test/safedict.test.py
     - icon: ':x:'
@@ -108,5 +111,11 @@ data:
     - icon: ':x:'
       path: test/systemoflinereq.test.py
       title: test/systemoflinereq.test.py
+    - icon: ':x:'
+      path: test/tetration.test.py
+      title: test/tetration.test.py
+    - icon: ':x:'
+      path: test/xorconv.test.py
+      title: test/xorconv.test.py
 layout: toppage
 ---
