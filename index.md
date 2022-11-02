@@ -30,7 +30,7 @@ data:
     - icon: ':warning:'
       path: Manacher.py
       title: Manacher.py
-    - icon: ':x:'
+    - icon: ':question:'
       path: Matrix.py
       title: Matrix.py
     - icon: ':warning:'
@@ -93,7 +93,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/LCA.test.py
       title: test/LCA.test.py
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/Matrixdet.test.py
       title: test/Matrixdet.test.py
     - icon: ':x:'

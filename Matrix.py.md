@@ -3,7 +3,7 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/Matrixdet.test.py
     title: test/Matrixdet.test.py
   - icon: ':x:'
@@ -17,12 +17,14 @@ data:
     title: test/systemoflinereq.test.py
   _isVerificationFailed: true
   _pathExtension: py
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.8/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.11.0/x64/lib/python3.11/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.8/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/python.py\"\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n          \
+    \         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\
+    \  File \"/opt/hostedtoolcache/Python/3.11.0/x64/lib/python3.11/site-packages/onlinejudge_verify/languages/python.py\"\
     , line 96, in bundle\n    raise NotImplementedError\nNotImplementedError\n"
   code: "class Matrix():\n    def __init__(self, r, c, mod = 998244353):\n       \
     \ self.r = r\n        self.c = c\n        self.A = [[0] * self.c for _ in range(self.r)]\n\
@@ -72,15 +74,15 @@ data:
     \ = self[i2, j]\n                for j2 in range(self.c):\n                  \
     \  self[i2, j2] -= time * self[i, j2]\n                    self[i2, j2] %= self.mod\n\
     \n        return self\n\n    def inv(self):\n        assert self.c == self.r\n\
-    \n        one = Matrix.makeone(r = self.r)\n        new = self.augment(one)\n\
-    \        new.hakidashi()\n        for i in range(self.r):\n            for j in\
-    \ range(self.c):\n                if i == j:\n                    if new[i, j]\
-    \ != 1:\n                        return 0, new\n                else:\n      \
-    \              if new[i, j] != 0:\n                        return 0, new\n   \
-    \     \n        X = Matrix(self.r, self.c)\n\n        for i in range(self.r):\n\
-    \            for j in range(self.c):\n                X[i, j] = new[i, j + self.c]\n\
-    \n        return 1, X\n\n    def lineareq(self, b):\n        assert self.r ==\
-    \ b.r\n        assert b.c == 1\n        Y = self.augment(b)\n        Y = Y.hakidashi()\n\
+    \n        one = Matrix.makeone(self.r)\n        new = self.augment(one)\n    \
+    \    new.hakidashi()\n        for i in range(self.r):\n            for j in range(self.c):\n\
+    \                if i == j:\n                    if new[i, j] != 1:\n        \
+    \                return 0, new\n                else:\n                    if\
+    \ new[i, j] != 0:\n                        return 0, new\n        \n        X\
+    \ = Matrix(self.r, self.c)\n\n        for i in range(self.r):\n            for\
+    \ j in range(self.c):\n                X[i, j] = new[i, j + self.c]\n\n      \
+    \  return 1, X\n\n    def lineareq(self, b):\n        assert self.r == b.r\n \
+    \       assert b.c == 1\n        Y = self.augment(b)\n        Y = Y.hakidashi()\n\
     \        B = [[0] * self.c for _ in range(self.c)]\n        ans = [0] * self.c\n\
     \n        flag = [0] * self.c\n        for i in range(self.r):\n            j\
     \ = 0\n            while j < self.c and Y[i, j] == 0:\n                j += 1\n\
@@ -111,8 +113,8 @@ data:
   isVerificationFile: false
   path: Matrix.py
   requiredBy: []
-  timestamp: '2022-11-02 01:48:20+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  timestamp: '2022-11-02 23:38:59+09:00'
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/Matrixdet.test.py
   - test/systemoflinereq.test.py
