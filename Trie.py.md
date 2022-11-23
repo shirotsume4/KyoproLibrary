@@ -22,30 +22,30 @@ data:
     \                 self.rightch[V] = V + fr\n                    self.parent[V\
     \ + fr] = V\n                V = V + fr\n            else:\n                if\
     \ V not in self.leftch:\n                    self.leftch[V] = V\n            \
-    \        self.parent[V] = V\n                V = V.zero\n    def search(self,\
-    \ x):\n        V = self.root\n        for i in range(self.wordsize - 1, -1, -1):\n\
-    \            if 1 & (x >> i):\n                if V.one is None: return None\n\
-    \                V = V.one\n            else:\n                if V.zero is None:\
-    \ return None\n                V = V.zero\n        return V\n\n    def contains(self,\
-    \ x) -> bool:\n        if self.search(x) is None:\n            return False\n\
-    \        else:\n            return True\n\n    \n    def remove(self, x):\n  \
-    \      V = self.search(x)\n        if V is None: return False\n        for i in\
-    \ range(self.wordsize):\n            P = V.parent\n            if P.zero == V:\n\
-    \                P.zero = None\n            else:\n                P.one = None\n\
-    \            if P.zero is not None or P.one is not None:\n                return\
-    \ True\n            V = P\n        return True\n    \n    def xormin(self, x)\
-    \ -> int:\n        V = self.root\n        xor = 0\n        for i in range(self.wordsize\
-    \ - 1, -1, -1):\n            if 1 & (x >> i):\n                if V.one is not\
-    \ None:\n                    V = V.one\n                else:\n              \
-    \      V = V.zero\n                    xor += 2 ** i\n            else:\n    \
-    \            if V.zero is not None:\n                    V = V.zero\n        \
-    \        else:\n                    V = V.one\n                    xor += 2 **\
-    \ i\n        return xor\n"
+    \        self.parent[V] = V\n    def search(self, x):\n        V = self.root\n\
+    \        for i in range(self.wordsize - 1, -1, -1):\n            if 1 & (x >>\
+    \ i):\n                if V.one is None: return None\n                V = V.one\n\
+    \            else:\n                if V.zero is None: return None\n         \
+    \       V = V.zero\n        return V\n\n    def contains(self, x) -> bool:\n \
+    \       if self.search(x) is None:\n            return False\n        else:\n\
+    \            return True\n\n    \n    def remove(self, x):\n        V = self.search(x)\n\
+    \        if V is None: return False\n        for i in range(self.wordsize):\n\
+    \            P = V.parent\n            if P.zero == V:\n                P.zero\
+    \ = None\n            else:\n                P.one = None\n            if P.zero\
+    \ is not None or P.one is not None:\n                return True\n           \
+    \ V = P\n        return True\n    \n    def xormin(self, x) -> int:\n        V\
+    \ = self.root\n        xor = 0\n        for i in range(self.wordsize - 1, -1,\
+    \ -1):\n            if 1 & (x >> i):\n                if V.one is not None:\n\
+    \                    V = V.one\n                else:\n                    V =\
+    \ V.zero\n                    xor += 2 ** i\n            else:\n             \
+    \   if V.zero is not None:\n                    V = V.zero\n                else:\n\
+    \                    V = V.one\n                    xor += 2 ** i\n        return\
+    \ xor\n"
   dependsOn: []
   isVerificationFile: false
   path: Trie.py
   requiredBy: []
-  timestamp: '2022-11-02 01:48:20+09:00'
+  timestamp: '2022-11-23 18:31:33+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: Trie.py

@@ -58,9 +58,6 @@ data:
       path: andconvolution.py
       title: andconvolution.py
     - icon: ':warning:'
-      path: bflow.py
-      title: bflow.py
-    - icon: ':warning:'
       path: modint.py
       title: modint.py
     - icon: ':warning:'
