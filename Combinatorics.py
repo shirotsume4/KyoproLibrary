@@ -1,5 +1,5 @@
 class Combinatorics():
-    def __init__(self, mod = 998244353, maxi = 5 * 10 ** 5):
+    def __init__(self, mod, maxi):
         self.mod = mod
         self.maxi = maxi
         self.facs = [1, 1]
@@ -23,9 +23,6 @@ class Combinatorics():
         if n == k == 0:
             return 1
         return self.choose(n + k - 1, k)
-
-    def factorial(self, n):
-        return self.facs[n]
 
 
 

@@ -9,7 +9,6 @@ inf = 2 ** 63 - 1
 mod = 998244353
 from safedict import sdict
 
-
 q = ii()
 d = sdict()
 
