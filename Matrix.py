@@ -4,12 +4,6 @@ class Matrix():
         self.c = c
         self.A = [[0] * self.c for _ in range(self.r)]
         self.mod = mod
-    
-    def makeone(self, r = 1):
-        A = Matrix(r, r, self.mod)
-        for i in range(r):
-            A[i, i] = 1
-        return A
         
     def __getitem__(self, key):
         rnow, cnow = key
@@ -58,10 +52,14 @@ class Matrix():
     def pow(self, x):
         assert isinstance(x, int) and x >= 0
         assert self.r == self.c
+        
+        one = Matrix(self.r, self.r)
+        for i in range(self.r):
+            one[i, i] = 1
         if x == 0:
-            return self.makeone(self.c)
+            return one
         else:
-            ret = self.makeone(self.c)
+            ret = one
             now = self
             while x > 0:
                 if x % 2:
@@ -128,7 +126,9 @@ class Matrix():
     def inv(self):
         assert self.c == self.r
 
-        one = self.makeone(self.r)
+        one = Matrix(self.r, self.r)
+        for i in range(self.r):
+            one[i, i] = 1
         new = self.augment(one)
         new.hakidashi()
         for i in range(self.r):

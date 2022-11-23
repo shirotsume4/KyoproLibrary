@@ -20,7 +20,6 @@ class Trie:
                 if V not in self.leftch:
                     self.leftch[V] = V
                     self.parent[V] = V
-                V = V.zero
     def search(self, x):
         V = self.root
         for i in range(self.wordsize - 1, -1, -1):
