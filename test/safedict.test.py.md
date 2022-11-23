@@ -20,7 +20,7 @@ data:
     import sys\nsys.path.append(\"..\")\ninput = lambda: sys.stdin.readline().rstrip()\n\
     ii = lambda: int(input())\nmi = lambda: map(int, input().split())\nli = lambda:\
     \ list(mi())\ninf = 2 ** 63 - 1\nmod = 998244353\nfrom safedict import sdict\n\
-    \n\nq = ii()\nd = sdict()\n\nfor _ in range(q):\n    query = li()\n    if query[0]\
+    \nq = ii()\nd = sdict()\n\nfor _ in range(q):\n    query = li()\n    if query[0]\
     \ == 0:\n        k, v = query[1:]\n        d[k] = v\n    else:\n        k = query[1]\n\
     \        if k in d:\n            print(d[k])\n        else:\n            print(0)\n"
   dependsOn: []

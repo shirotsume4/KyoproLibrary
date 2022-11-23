@@ -113,9 +113,9 @@ data:
   timestamp: '2022-11-23 18:31:33+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
+  - test/Matrixdet.test.py
   - test/systemoflinereq.test.py
   - test/Matrixinv.test.py
-  - test/Matrixdet.test.py
 documentation_of: Matrix.py
 layout: document
 redirect_from:
