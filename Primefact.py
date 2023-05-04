@@ -10,7 +10,7 @@ def isprime(n):
         s += 1
         t //= 2
     
-    for a in [2, 3, 5, 7, 11, 13, 17, 19, 23, 31, 37]:
+    for a in [2,325,9375,28178,450775,9780504,1795265022]:
         if a >= n:
             break
         x = pow(a, t, n)
@@ -68,3 +68,6 @@ def Primefact(N):
 
     return ret
 
+
+n = int(input())
+print(Primefact(n))

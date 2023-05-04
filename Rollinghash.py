@@ -1,33 +1,25 @@
-class Rollinghash():
-    def __init__(self, A):
-        import random
-        if isinstance(A[0], str):
-            self.A = [0] * len(A)
-            for i in range(len(A)):
-                self.A[i] = ord(A[i])
+class Rollinghash:
+    def __init__(self, string, base, mod):
+        n = len(string)
+        self.__base = base
+        self.__mod = mod
+        self.__hash = [0]*(n + 1)
+        self.__pow = [1]*(n + 1)
+        if isinstance(string, str):
+            for i, c in enumerate(string):
+                o = ord(c) - ord('a') + 1
+                self.__hash[i + 1] = (self.__hash[i] * self.__base + o) % self.__mod
+                self.__pow[i + 1] = self.__pow[i] * self.__base % self.__mod
         else:
-            self.A = A[::]
+            for i, c in enumerate(string):
+                o = c
+                self.__hash[i + 1] = (self.__hash[i] * self.__base + o) % self.__mod
+                self.__pow[i + 1] = self.__pow[i] * self.__base % self.__mod
 
-        self.mod1 = 1999881227
-        self.mod2 = 999051227
-        self.r1 = random.randint(0, self.mod1 - 1)
-        self.r2 = random.randint(0, self.mod2 - 1)
-        self.S1 = self.hashing(self.r1, self.mod1)
-        self.S2 = self.hashing(self.r2, self.mod2)
-        self.pow1= [1] * (len(A) + 1)
-        self.pow2= [1] * (len(A) + 1)
-        for i in range(1, len(A) + 1):
-            self.pow1[i] = pow(self.r1, i, self.mod1)
-        for i in range(1, len(A) + 1):
-            self.pow2[i] = pow(self.r2, i, self.mod2)
-    def hashing(self, r, mod):
-        S = [0, self.A[0]]
-        for v in self.A[1:]:
-            S.append((S[-1] * r + v) % mod)
-        return S
-    def query1(self, l, r):
-        return (self.S1[r] - self.S1[l] * self.pow1[r - l]) % self.mod1
-    def query2(self, l, r):
-        return (self.S2[r] - self.S2[l] * self.pow2[r - l]) % self.mod2
+
+   
+    def query(self, l, r):
+        ret = (self.__hash[r] - self.__hash[l] * self.__pow[r - l]) % self.__mod
+        return ret
     def same(self, l1, r1, l2, r2):
-        return self.query1(l1, r1) == self.query1(l2, r2) and self.query2(l1, r1) == self.query2(l2, r2)
+        return self.query(l1, r1) == self.query(l2, r2)

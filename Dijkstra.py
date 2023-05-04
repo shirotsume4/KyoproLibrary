@@ -1,18 +1,15 @@
 def Dijkstra(s, graph):
     INF = 2 ** 63 - 1
-    half = 10 ** 6
     import heapq
     n = len(graph)
     dist = [INF] * n
     dist[s] = 0
     bef = [0] * n
     bef[s] = s
-    hq = [0 * half + s]
+    hq = [(0, s)]
     heapq.heapify(hq)
     while hq:
-        x = heapq.heappop(hq)
-        c = x // half
-        now = x % half
+        c, now = heapq.heappop(hq)
         
         if c > dist[now]:
             continue
@@ -20,7 +17,7 @@ def Dijkstra(s, graph):
             if dist[now] + cost < dist[to]:
                 dist[to] = cost + dist[now]
                 bef[to] = now
-                heapq.heappush(hq, dist[to] * half + to)
+                heapq.heappush(hq, (dist[to], + to))
     return dist, bef
 
 def DijkstraRest(bef, t):

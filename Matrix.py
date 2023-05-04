@@ -1,222 +1,322 @@
-class Matrix():
-    def __init__(self, r, c, mod = 998244353):
-        self.r = r
-        self.c = c
-        self.A = [[0] * self.c for _ in range(self.r)]
-        self.mod = mod
-        
-    def __getitem__(self, key):
-        rnow, cnow = key
-        return self.A[rnow][cnow]
-    
-    def __setitem__(self, key, value):
-        rnow, cnow = key
-        self.A[rnow][cnow] = value
-    
-    def __add__(self, other):
-        assert self.r == other.r and self.c == other.c
-        ret = Matrix(self.r, self.c)
-        for i in range(self.r):
-            for j in range(self.c):
-                ret[i, j] = self[i, j] + other[i, j]
-                ret[i, j] %= self.mod
-        return ret
+from copy import deepcopy
 
-    def __sub__(self, other):
-        assert self.r == other.r and self.c == other.c
-        ret = Matrix(self.r, self.c)
-        for i in range(self.r):
-            for j in range(self.c):
-                ret[i, j] = self[i, j] - other[i, j]
-                ret[i, j] %= self.mod
-        return ret
+class Modulo_Matrix_Error(Exception):
+    pass
+Mod = 998244353
+class Modulo_Matrix():
+    __slots__=("ele","row","col","size")
+    #入力
+    def __init__(self,M):
+        """ 行列 M の定義
 
-    def __mul__(self, other):
-        if isinstance(other, int):
-            ret = Matrix(self.r, self.c)
-            for i in range(self.r):
-                for j in range(self.c):
-                    ret[i, j] = self[i, j] * other
-                    ret[i, j] %= self.mod
-                    
+        M: 行列
+        ※ Mod: 法はグローバル変数から指定
+        """
 
-        assert self.c == other.r
-        ret = Matrix(self.r, other.c)
-        for i in range(self.r):
-            for j in range(self.c):
-                for k in range(other.c):
-                    ret[i, k] += self[i, j] * other[j, k]
-                    ret[i, k] %= self.mod
-        return ret
-
-    def pow(self, x):
-        assert isinstance(x, int) and x >= 0
-        assert self.r == self.c
-        
-        one = Matrix(self.r, self.r)
-        for i in range(self.r):
-            one[i, i] = 1
-        if x == 0:
-            return one
+        self.ele=[[x%Mod for x in X] for X in M]
+        R=len(M)
+        if R!=0:
+            C=len(M[0])
         else:
-            ret = one
-            now = self
-            while x > 0:
-                if x % 2:
-                    ret *= now
-                now *= now
-                x //= 2
-            return ret
-            
-                    
+            C=0
+        self.row=R
+        self.col=C
+        self.size=(R,C)
 
-    def augment(self, other):
+    #出力
+    def __str__(self):
+        T=""
+        (r,c)=self.size
+        for i in range(r):
+            U="["
+            for j in range(c):
+                U+=str(self.ele[i][j])+" "
+            T+=U[:-1]+"]\n"
 
-        assert self.r == other.r
+        return "["+T[:-1]+"]"
 
-        X = Matrix(self.r, self.c + other.c, mod = self.mod)
+    def __repr__(self):
+        return str(self)
 
-        for i in range(self.r):
-            for j in range(self.c):
-                X[i, j] = self[i, j]
-            for j in range(other.c):
-                X[i, j + self.c] = other[i, j]
-        
-        return X
-    
-    def diminish(self, c):
-
-        X = []
-
-        for i in range(self.r):
-            X.append((self.A[i][:c]))
-        
-        return Matrix(self.r, c, mod = self.mod, A = X)
-        
-    def hakidashi(self):
-        for i in range(self.c):
-            for j in range(i + 1, self.r):
-                if self[j, i] != 0:
-                    for k in range(self.c):
-                        self[j, k], self[i, k] = self[i, k], self[j, k]
-                    break
-
-        for i in range(self.r):
-            for j in range(self.c):
-                if self[i, j] != 0:
-                    break
-            else:
-                continue
-            K = pow(self[i, j], self.mod - 2, self.mod)
-
-            for to in range(self.c):
-                self[i, to] *= K
-                self[i, to] %= self.mod
-
-            for i2 in range(self.r):
-                if i == i2:
-                    continue
-                time = self[i2, j]
-                for j2 in range(self.c):
-                    self[i2, j2] -= time * self[i, j2]
-                    self[i2, j2] %= self.mod
-
+    #+,-
+    def __pos__(self):
         return self
 
-    def inv(self):
-        assert self.c == self.r
+    def __neg__(self):
+        return self.__scale__(-1)
 
-        one = Matrix(self.r, self.r)
-        for i in range(self.r):
-            one[i, i] = 1
-        new = self.augment(one)
-        new.hakidashi()
-        for i in range(self.r):
-            for j in range(self.c):
-                if i == j:
-                    if new[i, j] != 1:
-                        return 0, new
-                else:
-                    if new[i, j] != 0:
-                        return 0, new
-        
-        X = Matrix(self.r, self.c)
+    #加法
+    def __add__(self,other):
+        M=self.ele; N=other.ele
 
-        for i in range(self.r):
-            for j in range(self.c):
-                X[i, j] = new[i, j + self.c]
+        L=[[0]*self.col for _ in range(self.row)]
+        for i in range(self.row):
+            Li,Mi,Ni=L[i],M[i],N[i]
+            for j in range(self.col):
+                Li[j]=Mi[j]+Ni[j]
+        return Modulo_Matrix(L)
 
-        return 1, X
+    def __iadd__(self,other):
+        M=self.ele; N=other.ele
 
-    def lineareq(self, b):
-        assert self.r == b.r
-        assert b.c == 1
-        Y = self.augment(b)
-        Y = Y.hakidashi()
-        B = [[0] * self.c for _ in range(self.c)]
-        ans = [0] * self.c
+        for i in range(self.row):
+            Mi,Ni=M[i],N[i]
+            for j in range(self.col):
+                Mi[j]+=Ni[j]
+                Mi[j]%=Mod
+        return self
 
-        flag = [0] * self.c
-        for i in range(self.r):
-            j = 0
-            while j < self.c and Y[i, j] == 0:
-                j += 1
-            if j == self.c:
-                if Y[i, -1] != 0:
-                    return None, None
-                continue
-            flag[j] = 1
-            ans[j] = Y[i, -1]
-            for k in range(j + 1, self.c):
-                if Y[i, k] % self.mod != 0:
-                    B[k][j] = (-Y[i, k])% self.mod
-                    flag[k] = -1
-        for i in range(self.c):
-            if  flag[i] != 1:
-                B[i][i] = 1
-        B=[B[i] for i in range(self.c) if flag[i] != 1]
-        return ans,B
+    #減法
+    def __sub__(self,other):
+        M=self.ele; N=other.ele
 
-    def rank(self):
-        new = self.hakidashi()
-        ret = 0
-        for i in range(self.r):
-            for j in range(self.c):
-                if new[i, j] != 0:
-                    ret += 1
-                    break
-        return ret
+        L=[[0]*self.col for _ in range(self.row)]
+        for i in range(self.row):
+            Li,Mi,Ni=L[i],M[i],N[i]
+            for j in range(self.col):
+                Li[j]=Mi[j]-Ni[j]
+        return Modulo_Matrix(L)
 
-    def det(self):
-        ret = 1
-        a = self
-        for i in range(self.r):
-            if a[i, i] == 0:
-                for j in range(i + 1, self.r):
-                    if a[j, i]:
+    def __isub__(self,other):
+        M=self.ele; N=other.ele
+
+        for i in range(self.row):
+            Mi,Ni=M[i],N[i]
+            for j in range(self.col):
+                Mi[j]-=Ni[j]
+                Mi[j]%=Mod
+        return self
+
+    #乗法
+    def __mul__(self,other):
+        if isinstance(other,Modulo_Matrix):
+            if self.col!=other.row:
+                raise Modulo_Matrix_Error("左側の列と右側の行が一致しません.({},{})".format(self.size,other.size))
+
+            M=self.ele; N=other.ele
+            E=[[0]*other.col for _ in range(self.row)]
+
+            for i in range(self.row):
+                Ei,Mi=E[i],M[i]
+                for k in range(self.col):
+                    m_ik,Nk=Mi[k],N[k]
+                    for j in range(other.col):
+                        Ei[j]+=m_ik*Nk[j]
+                        Ei[j]%=Mod
+            return Modulo_Matrix(E)
+        elif isinstance(other,int):
+            return self.__scale__(other)
+
+    def __rmul__(self,other):
+        if isinstance(other,int):
+            return self.__scale__(other)
+
+    def Inverse(self):
+        if  self.row!=self.col:
+            raise Modulo_Matrix_Error("正方行列ではありません.")
+
+        M=self
+        N=M.row
+        R=[[int(i==j) for j in range(N)] for i in range(N)]
+        T=deepcopy(M.ele)
+
+        for j in range(N):
+            if T[j][j]==0:
+                for i in range(j+1,N):
+                    if T[i][j]:
                         break
                 else:
-                    return 0
-                for k in range(self.r):
-                    a[j, k], a[i, k] = a[i, k], a[j, k]
-                ret *= -1
-                ret %= self.mod
+                    raise Modulo_Matrix_Error("正則行列ではありません")
+                T[j],T[i]=T[i],T[j]
+                R[j],R[i]=R[i],R[j]
+            Tj,Rj=T[j],R[j]
+            inv=pow(Tj[j],Mod-2,Mod)
+            for k in range(N):
+                Tj[k]*=inv; Tj[k]%=Mod
+                Rj[k]*=inv; Rj[k]%=Mod
+            for i in range(N):
+                if i==j: continue
+                c=T[i][j]
+                Ti,Ri=T[i],R[i]
+                for k in range(N):
+                    Ti[k]-=Tj[k]*c; Ti[k]%=Mod
+                    Ri[k]-=Rj[k]*c; Ri[k]%=Mod
+        return Modulo_Matrix(R)
 
-            for j in range(self.r):
-                if i < j:
-                    buf = a[j, i] * (pow(a[i, i], self.mod - 2, self.mod))
-                    buf %= self.mod
-                    for k in range(self.r):
-                        a[j, k] -= a[i, k] * buf
+    #スカラー倍
+    def __scale__(self,r):
+        M=self.ele
+        L=[[(r*M[i][j])%Mod for j in range(self.col)] for i in range(self.row)]
+        return Modulo_Matrix(L)
 
-                        a[j, k] %= self.mod
-        for i in range(self.r):
-            ret *= a[i, i]
-            ret %= self.mod
-        return ret
+    #累乗
+    def __pow__(self,n):
+        if self.row!=self.col:
+            raise Modulo_Matrix_Error("正方行列ではありません.")
 
-    def print(self):
-        for v in self.A:
-            print(*v)
+        def __mat_mul(A,B,r,Mod):
+            E=[[0]*r for _ in range(r)]
+            for i in range(r):
+                a=A[i]; e=E[i]
+                for k in range(r):
+                    b=B[k]
+                    for j in range(r):
+                        e[j]+=a[k]*b[j]
+                        e[j]%=Mod
+            return E
 
-        
+        def __mat_pow(A,n,r,Mod):
+            if n==0:
+                return [[1 if i==j else 0 for j in range(r)] for i in range(r)]
+            else:
+                return __mat_mul(__mat_pow(A,n-1,r,Mod),A,r,Mod) if n&1 else __mat_pow(__mat_mul(A,A,r,Mod),n>>1,r,Mod)
+
+        S=__mat_pow(self.ele,abs(n),self.col,Mod)
+        if n>=0:
+            return Modulo_Matrix(S)
+        else:
+            return Modulo_Matrix(S).Inverse()
+
+    #等号
+    def __eq__(self,other):
+        A=self
+        B=other
+        if A.size!=B.size:
+            return False
+
+        for i in range(A.row):
+            for j in range(A.col):
+                if A.ele[i][j]!=B.ele[i][j]:
+                    return False
+
+        return True
+
+    #不等号
+    def __neq__(self,other):
+        return not(self==other)
+
+    #転置
+    def Transpose(self):
+        self.col,self.row=self.row,self.col
+        self.ele=list(map(list,zip(*self.ele)))
+
+    #行基本変形
+    def Row_Reduce(self):
+        M=self
+        (R,C)=M.size
+        T=[]
+
+        for i in range(R):
+            U=[]
+            for j in range(C):
+                U.append(M.ele[i][j])
+            T.append(U)
+
+        I=0
+        for J in range(C):
+            if T[I][J]==0:
+                for i in range(I+1,R):
+                    if T[i][J]!=0:
+                        T[i],T[I]=T[I],T[i]
+                        break
+
+            if T[I][J]!=0:
+                u=T[I][J]
+                u_inv=pow(u,Mod-2,Mod)
+                for j in range(C):
+                    T[I][j]*=u_inv
+                    T[I][j]%=Mod
+
+                for i in range(R):
+                    if i!=I:
+                        v=T[i][J]
+                        for j in range(C):
+                            T[i][j]-=v*T[I][j]
+                            T[i][j]%=Mod
+                I+=1
+                if I==R:
+                    break
+
+        return Modulo_Matrix(T)
+
+    #列基本変形
+    def Column_Reduce(self):
+        M=self
+        (R,C)=M.size
+
+        T=[]
+        for i in range(R):
+            U=[]
+            for j in range(C):
+                U.append(M.ele[i][j])
+            T.append(U)
+
+        J=0
+        for I in range(R):
+            if T[I][J]==0:
+                for j in range(J+1,C):
+                    if T[I][j]!=0:
+                        for k in range(R):
+                            T[k][j],T[k][J]=T[k][J],T[k][j]
+                        break
+
+            if T[I][J]!=0:
+                u=T[I][J]
+                u_inv=pow(u,Mod-2,Mod)
+                for i in range(R):
+                    T[i][J]*=u_inv
+                    T[i][J]%=Mod
+
+                for j in range(C):
+                    if j!=J:
+                        v=T[I][j]
+                        for i in range(R):
+                            T[i][j]-=v*T[i][J]
+                            T[i][j]%=Mod
+                J+=1
+                if J==C:
+                    break
+
+        return Modulo_Matrix(T)
+
+    #行列の階数
+    def Rank(self):
+        M=self.Row_Reduce()
+        (R,C)=M.size
+        T=M.ele
+
+        S=0
+        for i in range(R):
+            f=False
+            for j in range(C):
+                if T[i][j]!=0:
+                    f=True
+                    break
+
+            if f:
+                S+=1
+            else:
+                break
+
+        return S
+
+    #行の結合
+    def Row_Union(self,other):
+        return Modulo_Matrix(self.ele+other.ele,Mod)
+
+    #列の結合
+    def Column_Union(self,other):
+        E=[]
+        for i in range(self.row):
+            E.append(self.ele[i]+other.ele[i])
+
+        return Modulo_Matrix(E)
+
+    def __getitem__(self,index):
+        assert isinstance(index,tuple) and len(index)==2
+        return self.ele[index[0]][index[1]]
+
+    def __setitem__(self,index,val):
+        assert isinstance(index,tuple) and len(index)==2
+        self.ele[index[0]][index[1]]=val
+#=================================================

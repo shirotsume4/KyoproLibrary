@@ -2,13 +2,13 @@ class Combinatorics():
     def __init__(self, mod, maxi):
         self.mod = mod
         self.maxi = maxi
-        self.facs = [1, 1]
-        self.factinvs = [1, 1]
-        self.invs = [0, 1]
+        self.facs = [1] * (maxi + 1)
+        self.factinvs = [1] * (maxi + 1)
+        self.invs = [1] * (maxi + 1)
         for i in range(2, self.maxi + 1):
-            self.facs.append((self.facs[-1] * i) % self.mod)
-            self.invs.append((-self.invs[self.mod % i] * (self.mod // i)) % self.mod)
-            self.factinvs.append((self.factinvs[-1] * self.invs[-1]) % self.mod)
+            self.facs[i] = ((self.facs[i-1] * i) % self.mod)
+            self.invs[i] = (-self.invs[self.mod % i] * (self.mod // i)) % self.mod
+            self.factinvs[i] = (self.factinvs[i-1] * self.invs[i]) % self.mod
             
     def choose(self, n, k) -> int:
         if k < 0 or k > n: return 0
